@@ -5,12 +5,10 @@ import { useUserContext } from "@/context/AuthContext";
 import {
   useDeletePost,
   useGetPostById,
-  useGetUserPosts,
 } from "@/lib/react-query/queriesAndMutations";
 import { Button } from "@/components/ui/button";
 import Loader from "@/components/shared/Loader";
 import PostStats from "@/components/shared/PostStats";
-import GridPostList from "@/components/shared/GridPostList";
 
 const PostDetails = () => {
   const navigate = useNavigate();
@@ -40,12 +38,7 @@ const PostDetails = () => {
           variant="ghost"
           className="shad-button_ghost"
         >
-          <img
-            src={"/assets/icons/back.svg"}
-            alt="back"
-            width={24}
-            height={24}
-          />
+          <img src="/assets/icons/back.svg" alt="back" width={24} height={24} />
           <p className="small-medium lg:base-medium">Back</p>
         </Button>
       </div>

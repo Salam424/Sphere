@@ -5,6 +5,7 @@ import {
   Outlet,
   useParams,
   useLocation,
+  useNavigate,
 } from "react-router-dom";
 
 import { LikedPosts } from "@/_root/pages";
@@ -30,6 +31,7 @@ const Profile = () => {
   const { id } = useParams();
   const { user } = useUserContext();
   const { pathname } = useLocation();
+  const navigate = useNavigate();
 
   const { data: currentUser } = useGetUserById(id || "");
 
@@ -90,8 +92,18 @@ const Profile = () => {
               </Link>
             </div>
             <div className={`${user.id === id && "hidden"}`}>
-              <Button type="button" className="shad-button_primary px-8">
-                Follow
+              <Button
+                onClick={() => navigate(-1)}
+                variant="ghost"
+                className="shad-button_ghost"
+              >
+                <img
+                  src={"/assets/icons/back.svg"}
+                  alt="back"
+                  width={24}
+                  height={24}
+                />
+                <p className="small-medium lg:base-medium">Back</p>
               </Button>
             </div>
           </div>
